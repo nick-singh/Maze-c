@@ -91,6 +91,7 @@ int main()
 	int row = (m*ROW) - ( m - 1), col = (n*COL) - (n - 1), maxsec;
 	
 	buildMaze(in, maze,row, col);
+	printMaze(out, maze, row, col);	
 	evalMaze(out, maze, row, col);
 	fscanf(in, "%d %d %d %d", &a, &b, &c, &d);
 
@@ -139,11 +140,11 @@ void buildMaze(FILE *in, int **maze, int m, int n){
 		
 		for(j = 2; j <= n; j+=2){
 			
-			fscanf(in, "%d", &unit);	// read in the values			
+			fscanf(in, "%d", &unit);		// read in the values			
 			numToBin(bin, unit, binSize); 	//unit to binary
 			
 			if(bin[0])drawWest(maze, i, j); 		// west
-			if(bin[1])drawNorth(maze, i, j); 	// north
+			if(bin[1])drawNorth(maze, i, j); 		// north
 			if(bin[2])drawEast(maze, i, j); 		// east
 			if(bin[3])drawSouth(maze, i, j);		// south
 		}		
